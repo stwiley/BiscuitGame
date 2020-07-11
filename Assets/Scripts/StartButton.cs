@@ -5,8 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class StartButton : MonoBehaviour
 {
-    public void OnClick()
+
+    void Update()
     {
-        SceneManager.LoadScene("OvenScene");
+        if (Input.GetKeyDown("return"))
+        {
+            SceneManager.LoadScene("OvenScene");
+        }
     }
+    
 }
