@@ -10,6 +10,7 @@ public class AppearButton : MonoBehaviour
     public Mesh objMesh;
 
     public float squeezeValue;
+    public float explodeValue;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,5 +25,6 @@ public class AppearButton : MonoBehaviour
         canv.SetActive(false);
 
         this.GetComponent<MeshAdjuster>().SqueezyBoy(objMesh, squeezeValue);
+        this.GetComponent<MeshAdjuster>().Explode(objMesh, 1.2f, 1.5f,  explodeValue);
     }
 }
