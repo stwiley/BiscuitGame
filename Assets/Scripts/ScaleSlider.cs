@@ -5,11 +5,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using Vector3 = UnityEngine.Vector3;
 
+
 public class ScaleSlider : MonoBehaviour
 {
     public Slider xslider;
     public Slider yslider;
     public Slider zslider;
+    public Slider squishslider;
+    //public Mesh bisquitMesh;
     Vector3 Scale;
 
     void Start()
@@ -17,6 +20,7 @@ public class ScaleSlider : MonoBehaviour
         xslider = GameObject.Find("xSlider").GetComponent<Slider>();
         yslider = GameObject.Find("ySlider").GetComponent<Slider>();
         zslider = GameObject.Find("zSlider").GetComponent<Slider>();
+        squishslider = GameObject.Find("squishSlider").GetComponent<Slider>();
         Scale = new Vector3(0.5f, 0.5f, 0.5f);
         transform.localScale = Scale;
     }
@@ -37,5 +41,10 @@ public class ScaleSlider : MonoBehaviour
     {
         Scale.z = zslider.value;
         transform.localScale = Scale;
+    }
+
+    public void squishSlider()
+    {
+        GameObject.Find("EventSystem").GetComponent<AppearButton>().squeezeValue = squishslider.value;
     }
 }

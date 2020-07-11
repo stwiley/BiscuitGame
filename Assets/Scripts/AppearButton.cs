@@ -7,10 +7,14 @@ public class AppearButton : MonoBehaviour
     public GameObject Obj;
     public GameObject canv;
     MeshRenderer mr;
+    public Mesh objMesh;
+
+    public float squeezeValue;
     // Start is called before the first frame update
     void Start()
     {
         mr = Obj.GetComponent<MeshRenderer>();
+        objMesh = Obj.GetComponent<MeshFilter>().mesh;
     }
 
     // Update is called once per frame
@@ -18,5 +22,7 @@ public class AppearButton : MonoBehaviour
     {
         mr.enabled = true;
         canv.SetActive(false);
+
+        this.GetComponent<MeshAdjuster>().SqueezyBoy(objMesh, squeezeValue);
     }
 }

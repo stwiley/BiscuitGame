@@ -19,7 +19,7 @@ public class MeshAdjuster : MonoBehaviour
         }
     }
 
-    void Explode(Mesh ms, float strengthmin, float strengthmax, float saturation) // Pushes "saturation"% of the vertices away from the center randomly. saturation is 0% <-> 100%.
+    public void Explode(Mesh ms, float strengthmin, float strengthmax, float saturation) // Pushes "saturation"% of the vertices away from the center randomly. saturation is 0% <-> 100%.
     {
         Vector3 center = Vector3.zero;
         Mesh numesh = ms;
@@ -42,7 +42,7 @@ public class MeshAdjuster : MonoBehaviour
         biscuit.GetComponent<MeshCollider>().sharedMesh = numesh;
     }
 
-    void SqueezyBoy(Mesh ms, float percent) // Pushes the vertices away or towards the center based on local position by "percent".
+    public void SqueezyBoy(Mesh ms, float percent) // Pushes the vertices away or towards the center based on local position by "percent".
     {
         Vector3 center = Vector3.zero;
         Mesh numesh = ms;
