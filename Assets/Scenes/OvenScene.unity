@@ -246,7 +246,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 625849231}
+      - m_Target: {fileID: 2131977905}
         m_MethodName: ySlider
         m_Mode: 1
         m_Arguments:
@@ -456,7 +456,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 625849231}
+      - m_Target: {fileID: 2131977905}
         m_MethodName: xSlider
         m_Mode: 1
         m_Arguments:
@@ -705,7 +705,6 @@ GameObject:
   - component: {fileID: 625849229}
   - component: {fileID: 625849228}
   - component: {fileID: 625849232}
-  - component: {fileID: 625849231}
   - component: {fileID: 625849233}
   m_Layer: 0
   m_Name: EventSystem
@@ -762,21 +761,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &625849231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 625849227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 842a503fdb71cb746bbf270fac4e2bff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xslider: {fileID: 260203110}
-  yslider: {fileID: 177653792}
-  zslider: {fileID: 1502821122}
 --- !u!114 &625849232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2024,7 +2008,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 625849231}
+      - m_Target: {fileID: 2131977905}
         m_MethodName: zSlider
         m_Mode: 1
         m_Arguments:
@@ -2121,6 +2105,7 @@ GameObject:
   - component: {fileID: 2131977903}
   - component: {fileID: 2131977902}
   - component: {fileID: 2131977901}
+  - component: {fileID: 2131977905}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -2202,3 +2187,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2131977905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131977900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 842a503fdb71cb746bbf270fac4e2bff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xslider: {fileID: 260203110}
+  yslider: {fileID: 177653792}
+  zslider: {fileID: 1502821122}
