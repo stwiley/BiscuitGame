@@ -27,10 +27,18 @@ public class MeshAdjuster : MonoBehaviour
 
         for(int i=0; i<vertices.Length; i++)
         {
-            if(Random.Range(0,100) < saturation)
+            if(Random.Range(0,100) < saturation) //Vertex has been chosen!
             {
-                //Vector3 awayvec = Vector3.Normalize(vertices[i] - center);
-                nuverts[i] = vertices[i] * Random.Range(strengthmin, strengthmax);
+                bool seam = false;
+                float randstrength = Random.Range(strengthmin, strengthmax);
+                for (int j = 0; j < vertices.Length; j++)
+                {
+                    if (vertices[j] == vertices[i] && j != i) //Check for duplicate/seam verts
+                    {
+                        nuverts[j] = vertices[j] * randstrength;
+                    }
+                }
+                nuverts[i] = vertices[i] * randstrength * (seam ? 0.5f : 1f);
             }
         }
 
