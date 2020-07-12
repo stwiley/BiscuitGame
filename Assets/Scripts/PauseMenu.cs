@@ -31,5 +31,6 @@ public class PauseMenu : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene("OvenScene");
+        Time.timeScale = 1f;
     }
 }
