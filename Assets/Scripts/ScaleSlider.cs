@@ -13,11 +13,16 @@ public class ScaleSlider : MonoBehaviour
     public Slider zslider;
     public Slider squishslider;
     public Slider explodeslider;
+    public Slider hueslider;
+    public Slider valslider;
     //public Mesh bisquitMesh;
     Vector3 Scale;
 
     private float timer;
     private bool zSliderMoved;
+
+    private float colorHue;
+    private float colorVal;
 
     void Start()
     {
@@ -26,6 +31,8 @@ public class ScaleSlider : MonoBehaviour
         zslider = GameObject.Find("zSlider").GetComponent<Slider>();
         squishslider = GameObject.Find("squishSlider").GetComponent<Slider>();
         explodeslider = GameObject.Find("explodeSlider").GetComponent<Slider>();
+        hueslider = GameObject.Find("hueSlider").GetComponent<Slider>();
+        valslider = GameObject.Find("valSlider").GetComponent<Slider>();
         Scale = new Vector3(0.5f, 0.5f, 0.5f);
         transform.localScale = Scale;
         timer = 0.2f;
@@ -92,5 +99,17 @@ public class ScaleSlider : MonoBehaviour
     public void explodeSlider()
     {
         GameObject.Find("EventSystem").GetComponent<AppearButton>().explodeValue = explodeslider.value;
+    }
+
+    public void hueSlider()
+    {
+        colorHue = hueslider.value;
+        GetComponent<Renderer>().material.color = Color.HSVToRGB(colorHue, 1f, colorVal);
+    }
+
+    public void valSlider()
+    {
+        colorVal = valslider.value;
+        GetComponent<Renderer>().material.color = Color.HSVToRGB(colorHue, 1f, colorVal);
     }
 }
