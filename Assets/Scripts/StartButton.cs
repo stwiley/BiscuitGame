@@ -13,5 +13,10 @@ public class StartButton : MonoBehaviour
             SceneManager.LoadScene("OvenScene");
         }
     }
+
+    public void OnPress()
+    {
+        Application.Quit();
+    }
     
 }

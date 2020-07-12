@@ -33,4 +33,10 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("OvenScene");
         Time.timeScale = 1f;
     }
+
+    public void titlescreen()
+    {
+        SceneManager.LoadScene("StartScene");
+        Time.timeScale = 1f;
+    }
 }
