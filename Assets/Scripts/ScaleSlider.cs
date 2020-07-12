@@ -16,6 +16,9 @@ public class ScaleSlider : MonoBehaviour
     //public Mesh bisquitMesh;
     Vector3 Scale;
 
+    private float timer;
+    private bool zSliderMoved;
+
     void Start()
     {
         xslider = GameObject.Find("xSlider").GetComponent<Slider>();
@@ -25,8 +28,43 @@ public class ScaleSlider : MonoBehaviour
         explodeslider = GameObject.Find("explodeSlider").GetComponent<Slider>();
         Scale = new Vector3(0.5f, 0.5f, 0.5f);
         transform.localScale = Scale;
+        timer = 0.2f;
     }
 
+    private void Update()
+    {
+        if (!GameObject.Find("EventSystem").GetComponent<AppearButton>().startedGame && timer <= 0) //fucks with the settings while the hud is up
+        {
+            annoyingSliders();
+            timer = 0.3f;
+        }
+        timer -= Time.deltaTime;
+    }
+
+    public void annoyingSliders()
+    {
+        if(xslider.value > xslider.minValue) //xslider just slowly goes down
+        {
+            xslider.value -= .01f;
+        }
+
+        if(yslider.normalizedValue > xslider.normalizedValue && yslider.normalizedValue > squishslider.normalizedValue) //yslider tries to stay between x and squish
+        {
+            yslider.value -= .01f;
+        }
+        else if(yslider.normalizedValue < xslider.normalizedValue && yslider.normalizedValue < squishslider.normalizedValue)
+        {
+            yslider.value += .01f;
+        }
+
+        if(zSliderMoved) //moving zslider makes explodeslider go up and down
+        {
+            explodeslider.value += 2*Mathf.Sin(zslider.value);
+            zSliderMoved = false;
+        }
+
+
+    }
     public void xSlider()
     {
         Scale.x = xslider.value;
@@ -43,6 +81,7 @@ public class ScaleSlider : MonoBehaviour
     {
         Scale.z = zslider.value;
         transform.localScale = Scale;
+        zSliderMoved = true;
     }
 
     public void squishSlider()
