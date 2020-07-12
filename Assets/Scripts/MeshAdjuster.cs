@@ -52,7 +52,7 @@ public class MeshAdjuster : MonoBehaviour
         {
             float distance = Vector3.Distance(center, vertices[i]);
             Vector3 awayvec = Vector3.Normalize(vertices[i] - center) * distance;
-            nuverts[i] = (vertices[i]*(percent/100)) + awayvec * Mathf.Abs(vertices[i].y) * (percent/200);
+            nuverts[i] = vertices[i] + awayvec * Mathf.Abs(vertices[i].y) * (percent/200);
         }
 
         numesh.vertices = nuverts;
